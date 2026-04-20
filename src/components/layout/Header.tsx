@@ -47,17 +47,19 @@ export function Header() {
           <Link
             to="/"
             className={cn(
-              'text-lg font-light tracking-widest transition-all duration-300',
+              'text-base tracking-widest transition-all duration-300',
               isTransparent
-                ? 'text-white hover:text-white/80'
-                : 'text-foreground hover:text-foreground/80'
+                ? 'text-retro-cream hover:text-retro-orange'
+                : 'text-foreground hover:text-retro-orange'
             )}
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="headline"
             >
+              <span className="text-retro-orange">●</span>{' '}
               {photographerInfo.name.toUpperCase()}
             </motion.span>
           </Link>
@@ -73,15 +75,19 @@ export function Header() {
                 >
                   <Link
                     to={link.path}
-                    className="relative text-lg leading-7 font-light tracking-wide text-white transition-colors duration-300 hover:text-white/80"
+                    className={cn(
+                      'relative font-mono text-xs uppercase tracking-[0.25em] transition-colors duration-300',
+                      isTransparent
+                        ? 'text-retro-cream hover:text-retro-orange'
+                        : 'text-foreground hover:text-retro-orange'
+                    )}
                   >
                     {link.name}
-                    {/* Active underline */}
                     {location.pathname === link.path && (
                       <motion.div
                         layoutId="activeNav"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-white"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        className="absolute -bottom-1 left-0 right-0 h-px bg-retro-orange"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
                   </Link>
