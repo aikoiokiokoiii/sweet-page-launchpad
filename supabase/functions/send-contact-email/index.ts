@@ -7,7 +7,13 @@ const corsHeaders = {
 import { z } from "npm:zod@3.23.8";
 
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
-const RECIPIENT = "andrewnicolesanosa@gmail.com";
+
+// Andrew's primary inbox. While using `onboarding@resend.dev` as sender,
+// Resend will ONLY deliver to the email tied to the Resend account
+// (sanosaandrew@gmail.com). To deliver to andrewnicolesanosa@gmail.com,
+// verify a domain at resend.com/domains and change FROM_ADDRESS below to
+// use that domain. No other code change is required.
+const RECIPIENTS = ["sanosaandrew@gmail.com", "andrewnicolesanosa@gmail.com"];
 const FROM_ADDRESS = "Andrew Sañosa Portfolio <onboarding@resend.dev>";
 
 const PROJECT_TYPE_LABELS: Record<string, string> = {
