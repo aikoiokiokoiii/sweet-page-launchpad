@@ -34,10 +34,10 @@ Whether it's a 15-second ad or a 6-minute short, I want the edit to disappear. T
   tools: [
     'Premiere Pro',
     'After Effects',
-    'DaVinci Resolve',
+    'Blackmagic DaVinci Resolve',
     'Blender',
+    'Avid Media Composer',
     'CapCut',
-    'Filmora',
   ],
   services: [
     {
