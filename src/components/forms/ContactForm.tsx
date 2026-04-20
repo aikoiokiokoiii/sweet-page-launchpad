@@ -89,9 +89,9 @@ export function ContactForm() {
       form.reset();
       setTimeout(() => setIsSuccess(false), 6000);
     } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Unknown error';
       form.setError('root', {
-        message:
-          'Something went wrong. Please email andrewnicolesanosa@gmail.com directly.',
+        message: `Something went wrong. Please try again, or email me directly at andrewnicolesanosa@gmail.com. (${msg})`,
       });
     } finally {
       setIsSubmitting(false);
@@ -118,7 +118,7 @@ export function ContactForm() {
           Your message has been sent successfully. I'll get back to you within 24–48 hours.
         </p>
         <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          ⏵ Check your email client for the draft
+          ⏵ Delivered to Andrew's inbox
         </p>
       </motion.div>
     );
@@ -230,7 +230,10 @@ export function ContactForm() {
         </Button>
 
         <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground text-center">
-          ⏵ Opens in your email app · sent to andrewnicolesanosa@gmail.com
+          ⏵ Or email me directly at{' '}
+          <a href="mailto:andrewnicolesanosa@gmail.com" className="text-retro-orange hover:underline">
+            andrewnicolesanosa@gmail.com
+          </a>
         </p>
       </form>
     </Form>
