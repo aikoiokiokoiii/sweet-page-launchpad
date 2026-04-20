@@ -48,7 +48,7 @@ export function ProjectCard({
     >
       <Link
         to={`/project/${project.slug}`}
-        className="group block relative overflow-hidden rounded-sm hover-glitch"
+        className="group block relative overflow-hidden rounded-sm transition-transform duration-500 ease-out will-change-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-orange/60"
       >
         <div className={cn('relative overflow-hidden bg-muted', aspectRatioClasses[ratio])}>
           {!isLoaded && <div className="absolute inset-0 bg-muted" />}
@@ -57,9 +57,9 @@ export function ProjectCard({
             src={project.coverImage}
             alt={project.title}
             className={cn(
-              'absolute inset-0 w-full h-full object-cover transition-all duration-700',
+              'absolute inset-0 w-full h-full object-cover transition-[transform,filter] duration-700 ease-out',
               isLoaded ? 'opacity-100' : 'opacity-0',
-              'group-hover:scale-105'
+              'group-hover:scale-[1.04] group-hover:brightness-110 group-hover:contrast-105'
             )}
             loading={index < 4 ? 'eager' : 'lazy'}
             onLoad={() => setIsLoaded(true)}
@@ -79,19 +79,19 @@ export function ProjectCard({
             {project.year}
           </div>
 
-          {/* Hover overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500">
-            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 space-y-2">
+          {/* Hover overlay — soft fade, no jitter */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-500 ease-out">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 space-y-2">
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center size-8 rounded-full bg-retro-orange text-primary-foreground transition-transform group-hover:scale-110">
+                <span className="inline-flex items-center justify-center size-8 rounded-full bg-retro-orange text-primary-foreground transition-transform duration-300 ease-out group-hover:scale-105">
                   <Play className="size-4 fill-current" />
                 </span>
-                <h3 className="headline text-xl md:text-2xl text-retro-cream">
+                <h3 className="headline text-lg sm:text-xl md:text-2xl text-retro-cream leading-tight">
                   {project.title}
                 </h3>
               </div>
               {project.role && (
-                <p className="font-mono text-[11px] uppercase tracking-widest text-retro-cyan">
+                <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-retro-cyan">
                   {project.role}
                 </p>
               )}
@@ -99,7 +99,7 @@ export function ProjectCard({
           </div>
 
           {/* Subtle border accent on hover */}
-          <div className="absolute inset-0 border border-retro-orange/0 group-hover:border-retro-orange/40 transition-colors duration-500" />
+          <div className="absolute inset-0 border border-retro-orange/0 group-hover:border-retro-orange/30 transition-colors duration-500 ease-out pointer-events-none" />
         </div>
       </Link>
     </motion.div>
