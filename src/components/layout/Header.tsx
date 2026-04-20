@@ -126,7 +126,7 @@ export function Header() {
                       key={link.path}
                       to={link.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-foreground/80"
+                      className="font-mono text-sm uppercase tracking-[0.25em] text-foreground hover:text-retro-orange"
                     >
                       {link.name}
                     </Link>
