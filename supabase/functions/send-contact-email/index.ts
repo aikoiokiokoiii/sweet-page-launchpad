@@ -13,8 +13,8 @@ const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 // (sanosaandrew@gmail.com). To deliver to andrewnicolesanosa@gmail.com,
 // verify a domain at resend.com/domains and change FROM_ADDRESS below to
 // use that domain. No other code change is required.
-const RECIPIENT = "sanosaandrew@gmail.com";
-const FROM_ADDRESS = "Andrew Sañosa Portfolio <onboarding@resend.dev>";
+const RECIPIENT = "andrewnicolesanosa@gmail.com";
+const FROM_ADDRESS = "onboarding@resend.dev";
 
 const PROJECT_TYPE_LABELS: Record<string, string> = {
   "music-video": "Music Video",
